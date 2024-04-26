@@ -1,0 +1,19 @@
+.menu .active {
+  background: linear-gradient(
+    116.49deg,
+    #7000ff 0%,
+    #e700b7 47.4%,
+    #ffa000 100%
+  );
+}
+.menu a:hover {
+  background: linear-gradient(
+    116.49deg,
+    #7000ff 0%,
+    #e700b7 47.4%,
+    #ffa000 100%
+  );
+}
+.dropdown-content li {
+  margin-bottom: 10px;
+}
