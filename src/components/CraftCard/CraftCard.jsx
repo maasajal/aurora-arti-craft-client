@@ -18,7 +18,7 @@ const CraftCard = ({ craft }) => {
   return (
     <>
       {!loading ? (
-        <div className="card card-compact bg-base-100 shadow-xl animate__animated animate__fadeInUpBig">
+        <div className="card card-compact bg-base-100">
           <div>
             <img src={image} alt={item_name} />
           </div>

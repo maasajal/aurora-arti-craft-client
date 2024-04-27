@@ -1,34 +1,48 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import Swal from "sweetalert2";
 
-const MyCraftItem = ({ myCraft }) => {
+const MyCraftItem = ({ myCraft, myCraftListItem, setMyCraftListItem }) => {
   const { loading } = useContext(AuthContext);
-  const [myCraftList, setMyCraftList] = useState(myCraft);
   const { _id, image, item_name, price, rating, customization, stock_status } =
-    myCraftList;
+  myCraft;
 
   const handleDelete = async (id) => {
     console.log("Delete", id);
-    const response = await fetch(`http://localhost:5555/crafts/${id}`, {
-      method: "DELETE",
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     });
-    const data = await response.json();
-    console.log(data);
-    if (data.deletedCount > 0) {
-      Swal.fire({
-        title: "Success!",
-        text: "Item delete successfully!",
-        icon: "success",
-        confirmButtonText: "Cool",
-      });
-      const remainingCraft = await myCraftList.filter(
-        (craft) => craft._id !== id
-      );
-      setMyCraftList(remainingCraft);
+
+    if (result.isConfirmed) {
+      try {
+        const response = await fetch(`http://localhost:5555/crafts/${id}`, {
+          method: "DELETE",
+        });
+        const data = await response.json();
+        console.log(data);
+        if (data.deletedCount > 0) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Item deleted successfully!",
+            icon: "success",
+          });
+          const remainingCraft = await myCraftListItem.filter(
+            (craft) => craft._id !== id
+          );
+          setMyCraftListItem(remainingCraft);
+        }
+      } catch (error) {
+        console.error("Error deleting item:", error);
+      }
     }
   };
   return (
@@ -60,7 +74,7 @@ const MyCraftItem = ({ myCraft }) => {
                 to={`/crafts/${_id}`}
                 className="btn border-none uppercase text-white bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
               >
-                <FaEdit className="text-lg" /> Update
+                <FaEdit className="text-lg" /> Edit
               </Link>
               <Link
                 onClick={() => handleDelete(_id)}

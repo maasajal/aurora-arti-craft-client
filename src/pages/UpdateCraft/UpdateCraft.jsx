@@ -1,9 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AddCraftItem = () => {
+const UpdateCraft = () => {
+  const editCraftItem = useLoaderData();
   const navigate = useNavigate();
-  const handleAddCraft = async (e) => {
+  console.log(editCraftItem);
+
+  const handleCraftEdit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
@@ -15,9 +18,7 @@ const AddCraftItem = () => {
     const customization = form.customization.value;
     const processing_time = form.processing_time.value;
     const stock_status = form.stock_status.value;
-    const user_email = form.user_email.value;
-    const user_name = form.user_name.value;
-    const addCraftItem = {
+    const updateCraft = {
       item_name,
       subcategory_name,
       price,
@@ -27,38 +28,39 @@ const AddCraftItem = () => {
       stock_status,
       short_description,
       image,
-      user_email,
-      user_name,
     };
-    console.log(addCraftItem);
+    console.log(updateCraft);
 
     try {
-      const response = await fetch("http://localhost:5555/crafts", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(addCraftItem),
-      });
+      const response = await fetch(
+        `http://localhost:5555/crafts/${editCraftItem._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateCraft),
+        }
+      );
       const data = await response.json();
       //   console.log(data);
-      // form.reset();
-      if (data.insertedId) {
+      form.reset();
+      navigate("/my-art&craft");
+      if (data.modifiedCount > 0) {
         Swal.fire({
           title: "Success!",
-          text: "New craft item added successfully!",
+          text: "Craft update successfully!",
           icon: "success",
           confirmButtonText: "Cool",
         });
-        // navigate("/my-art&craft")
       }
     } catch (error) {
       console.error("Error", error);
       Swal.fire({
         title: "Error!",
-        text: `An error occurred while adding the craft. Please try again later. ${error.message}`,
+        text: `An error occurred while updating the craft. Please try again later. ${error.message}`,
         icon: "error",
-        confirmButtonText: "Okay",
+        confirmButtonText: "Try Again",
       });
     }
   };
@@ -68,17 +70,18 @@ const AddCraftItem = () => {
       <div className="text-center pt-24 max-w-3xl mx-auto">
         <h2 className="text-5xl font-extrabold font-playFair">
           <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
-            Add a Craft Item
+            Update Craft Item
           </span>
         </h2>
         <p className="py-5 leading-8">
-          Bring your artistic vision to life by adding your unique craft items
-          to our vibrant marketplace with ease and convenience, connecting with
-          a community of art enthusiasts and creators.
+          The Update Craft Item page empowers users to refine and enhance their
+          listed arts and crafts effortlessly. With intuitive controls, users
+          can modify details, adjust imagery, and refine descriptions, ensuring
+          their creations always shine in the best light.
         </p>
       </div>
       <div className="mx-auto p-12 md:py-12 md:px-28 bg-slate-300 rounded-xl">
-        <form onSubmit={handleAddCraft} className="mt-10">
+        <form onSubmit={handleCraftEdit} className="mt-10">
           {/* Form first row */}
           <div className="flex gap-5 mb-5 flex-col md:flex-row">
             <div className="form-control w-full">
@@ -87,6 +90,7 @@ const AddCraftItem = () => {
                 type="text"
                 id="item_name"
                 name="item_name"
+                defaultValue={editCraftItem.item_name}
                 placeholder="Enter craft name..."
                 className="input input-bordered"
                 required
@@ -99,6 +103,7 @@ const AddCraftItem = () => {
                 id="subcategory_name"
                 name="subcategory_name"
                 placeholder="Enter craft subcategory name..."
+                defaultValue={editCraftItem.subcategory_name}
                 className="input input-bordered"
                 required
               />
@@ -113,6 +118,7 @@ const AddCraftItem = () => {
                 id="price"
                 name="price"
                 placeholder="Enter craft price..."
+                defaultValue={editCraftItem.price}
                 className="input input-bordered"
                 required
               />
@@ -124,6 +130,7 @@ const AddCraftItem = () => {
                 id="rating"
                 name="rating"
                 placeholder="Enter coffee rating..."
+                defaultValue={editCraftItem.rating}
                 className="input input-bordered"
                 required
               />
@@ -137,8 +144,9 @@ const AddCraftItem = () => {
                 className="select input input-bordered"
                 name="customization"
                 required
+                defaultValue={editCraftItem.customization}
               >
-                <option disabled selected>
+                <option disabled>
                   Is the item customizable?
                 </option>
                 <option>Yes</option>
@@ -152,6 +160,7 @@ const AddCraftItem = () => {
                 id="processing_time"
                 name="processing_time"
                 placeholder="Enter processing time..."
+                defaultValue={editCraftItem.processing_time}
                 className="input input-bordered"
                 required
               />
@@ -165,8 +174,9 @@ const AddCraftItem = () => {
                 className="select input input-bordered"
                 name="stock_status"
                 required
+                defaultValue={editCraftItem.stock_status}
               >
-                <option disabled selected>
+                <option disabled>
                   What is stock status?
                 </option>
                 <option>Made to Order</option>
@@ -180,37 +190,13 @@ const AddCraftItem = () => {
                 id="image"
                 name="image"
                 placeholder="Enter image url..."
+                defaultValue={editCraftItem.image}
                 className="input input-bordered"
                 required
               />
             </div>
           </div>
           {/* Form fifth row */}
-          <div className="flex gap-5 mb-5 flex-col md:flex-row">
-            <div className="form-control w-full">
-              <label className="label">User Email</label>
-              <input
-                type="email"
-                id="user_email"
-                name="user_email"
-                placeholder="Enter user email..."
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control w-full">
-              <label className="label">User Name</label>
-              <input
-                type="text"
-                id="user_name"
-                name="user_name"
-                placeholder="Enter user name..."
-                className="input input-bordered"
-                required
-              />
-            </div>
-          </div>
-          {/* Form sixth row */}
           <div className="form-control mb-5">
             <label className="label">Short Description</label>
             <textarea
@@ -218,6 +204,7 @@ const AddCraftItem = () => {
               id="short_description"
               name="short_description"
               placeholder="Enter short description..."
+              defaultValue={editCraftItem.short_description}
               className="textarea input-bordered"
               required
             />
@@ -225,7 +212,7 @@ const AddCraftItem = () => {
           {/* form submit button */}
           <div className="form-control mt-6">
             <button className="btn text-white bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500">
-              Add Craft Item
+              Update
             </button>
           </div>
         </form>
@@ -233,4 +220,4 @@ const AddCraftItem = () => {
     </div>
   );
 };
-export default AddCraftItem;
+export default UpdateCraft;

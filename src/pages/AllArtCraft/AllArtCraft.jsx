@@ -20,7 +20,7 @@ const AllArtCraft = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-24">
           {allArt_Craft.map((craft) => (
-            <CraftCard key={craft.id} craft={craft} />
+            <CraftCard key={craft._id} craft={craft} />
           ))}
         </div>
       </div>

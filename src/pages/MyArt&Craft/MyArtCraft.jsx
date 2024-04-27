@@ -1,17 +1,19 @@
 import { useLoaderData } from "react-router-dom";
 import MyCraftItem from "../../components/MyCraftItem/MyCraftItem";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const MyArtCraft = () => {
   const { user } = useContext(AuthContext);
   const userEmail = user.email;
   const myArt_Craft = useLoaderData();
-  console.log(userEmail, myArt_Craft);
+  //   console.log(userEmail, myArt_Craft);
   const myCraftList = myArt_Craft.filter(
     (craft) => craft.user_email === userEmail
   );
-  console.log(myCraftList);
+
+  const [myCraftListItem, setMyCraftListItem] = useState(myCraftList);
+  //   console.log(myCraftList);
   return (
     <div>
       <div className="max-w-6xl mx-auto px-4 md:px-3 lg:px-2">
@@ -30,8 +32,13 @@ const MyArtCraft = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-24">
-          {myCraftList.map((craft) => (
-            <MyCraftItem key={craft.id} myCraft={craft} />
+          {myCraftListItem.map((craft) => (
+            <MyCraftItem
+              key={craft._id}
+              myCraft={craft}
+              myCraftListItem={myCraftListItem}
+              setMyCraftListItem={setMyCraftListItem}
+            />
           ))}
         </div>
       </div>
