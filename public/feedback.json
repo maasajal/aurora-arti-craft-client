@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Smith",
+    "email": "alice@example.com",
+    "rating": 5,
+    "comment": "Absolutely love the quality and craftsmanship of the products! Will definitely be ordering again.",
+    "date": "2024-04-25"
+  },
+  {
+    "id": 2,
+    "name": "Bob Johnson",
+    "email": "bob@example.com",
+    "rating": 4,
+    "comment": "Great selection of unique items. Shipping was fast and the packaging was excellent.",
+    "date": "2024-04-24"
+  },
+  {
+    "id": 3,
+    "name": "Charlie Brown",
+    "email": "charlie@example.com",
+    "rating": 5,
+    "comment": "The customer service was outstanding! Prompt responses and very helpful staff.",
+    "date": "2024-04-23"
+  },
+  {
+    "id": 4,
+    "name": "David Miller",
+    "email": "david@example.com",
+    "rating": 4,
+    "comment": "Beautifully crafted items. Would love to see even more variety in the future.",
+    "date": "2024-04-22"
+  },
+  {
+    "id": 5,
+    "name": "Eva Wilson",
+    "email": "eva@example.com",
+    "rating": 5,
+    "comment": "Impressed by the attention to detail in each product. Makes for perfect gifts!",
+    "date": "2024-04-21"
+  }
+]
