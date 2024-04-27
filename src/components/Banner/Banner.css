@@ -1,0 +1,12 @@
+/* Custom styles for Swiper navigation buttons */
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullet {
+  color: #7000ff !important;
+}
+.swiper-button-prev {
+  left: 4rem; /* Adjust the left position of the previous button */
+}
+.swiper-button-next {
+  right: 4rem; /* Adjust the right position of the next button */
+}

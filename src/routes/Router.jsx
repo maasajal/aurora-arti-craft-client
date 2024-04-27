@@ -14,6 +14,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("../painting&drawing.json"),
       },
       {
         path: "/register",
