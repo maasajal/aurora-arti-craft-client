@@ -39,7 +39,7 @@ const CraftCard = ({ craft }) => {
             <p className="mb-4 leading-8">{short_description}</p>
             <div className="card-actions">
               <Link
-                to={`/craft/${item_name}`}
+                to={`/crafts/${item_name}`}
                 className="btn px-6 border-none uppercase w-full text-white bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
               >
                 View Details

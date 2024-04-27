@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../pages/Home/Home";
+import PrivateRoute from "./PrivateRoute";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AllArtCraft from "../pages/AllArtCraft/AllArtCraft";
 import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
-import PrivateRoute from "./PrivateRoute";
+import CraftDetail from "../pages/CraftDetail/CraftDetail";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,16 @@ const router = createBrowserRouter([
         path: "/all-art&craft",
         element: <AllArtCraft />,
         loader: () => fetch("http://localhost:5555/crafts"),
+      },
+      {
+        path: `/crafts/:item_name`,
+        element: (
+          <PrivateRoute>
+            <CraftDetail />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5555/crafts/${params.item_name}`),
       },
       {
         path: "/add-craft",
