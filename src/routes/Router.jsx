@@ -5,6 +5,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AllArtCraft from "../pages/AllArtCraft/AllArtCraft";
+import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         path: "/all-art&craft",
         element: <AllArtCraft />,
         loader: () => fetch("../painting&drawing.json"),
+      },
+      {
+        path: "/add-craft",
+        element: <AddCraftItem />,
       },
       {
         path: "/register",
