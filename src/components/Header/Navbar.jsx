@@ -28,6 +28,9 @@ const Navbar = () => {
       <li key="all-art&craft" className="hover:text-white mr-3">
         <NavLink to="/all-art&craft">All art & craft items</NavLink>
       </li>
+      <li key="my-art&craft" className="hover:text-white mr-3">
+        <NavLink to="/my-art&craft">My art & craft</NavLink>
+      </li>
       <li key="add-craft" className="hover:text-white mr-3">
         <NavLink to="/add-craft">Add craft item</NavLink>
       </li>
