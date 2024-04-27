@@ -40,6 +40,7 @@ const AddCraftItem = () => {
       });
       const data = await response.json();
       //   console.log(data);
+      form.reset();
       if (data.insertedId) {
         Swal.fire({
           title: "Success!",
@@ -73,7 +74,7 @@ const AddCraftItem = () => {
           a community of art enthusiasts and creators.
         </p>
       </div>
-      <div className="mx-auto p-12 md:py-12 md:px-28 bg-slate-100 rounded-xl">
+      <div className="mx-auto p-12 md:py-12 md:px-28 bg-slate-300 rounded-xl">
         <form onSubmit={handleAddCraft} className="mt-10">
           {/* Form first row */}
           <div className="flex gap-5 mb-5 flex-col md:flex-row">
@@ -105,7 +106,7 @@ const AddCraftItem = () => {
             <div className="form-control w-full">
               <label className="label">Price</label>
               <input
-                type="number"
+                type="float"
                 id="price"
                 name="price"
                 placeholder="Enter craft price..."

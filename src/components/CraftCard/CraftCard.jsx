@@ -34,7 +34,7 @@ const CraftCard = ({ craft }) => {
               <span>Customization: {customization}</span>{" "}
             </h3>
             <p className="flex justify-between">
-              <span>Price: {price}</span> <span>Rating: {rating}</span>
+              <span>Price: ${price}</span> <span>Rating: {rating}</span>
             </p>
             <p className="mb-4 leading-8">{short_description}</p>
             <div className="card-actions">

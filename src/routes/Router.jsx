@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AllArtCraft from "../pages/AllArtCraft/AllArtCraft";
 import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-craft",
-        element: <AddCraftItem />,
+        element: (
+          <PrivateRoute>
+            <AddCraftItem />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/register",
