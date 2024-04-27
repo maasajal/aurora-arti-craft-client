@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const CraftCard = ({ craft }) => {
   const { loading } = useContext(AuthContext);
   const {
+    _id,
     image,
     item_name,
     subcategory_name,
@@ -39,7 +40,7 @@ const CraftCard = ({ craft }) => {
             <p className="mb-4 leading-8">{short_description}</p>
             <div className="card-actions">
               <Link
-                to={`/crafts/${item_name}`}
+                to={`/crafts/${_id}`}
                 className="btn px-6 border-none uppercase w-full text-white bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
               >
                 View Details

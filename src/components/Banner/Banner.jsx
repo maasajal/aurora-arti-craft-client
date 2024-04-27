@@ -28,7 +28,7 @@ const Banner = ({ sliderData }) => {
         className="mySwiper"
       >
         {sliderData.map((art) => (
-          <SwiperSlide key={art.id}>
+          <SwiperSlide key={art._id}>
             <div
               className="hero"
               style={{
@@ -43,7 +43,7 @@ const Banner = ({ sliderData }) => {
                   </h1>
                   <p className="mb-5">{art.short_description}</p>
                   <Link
-                    to={`/crafts/${art.item_name}`}
+                    to={`/crafts/${art._id}`}
                     className="btn px-6 border-none text-white uppercase bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
                   >
                     View Details

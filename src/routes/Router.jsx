@@ -20,25 +20,25 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("../painting&drawing.json"),
+        loader: () => fetch("http://localhost:5555/crafts"),
       },
       {
-        path: "/all-art&craft",
+        path: "/all-art-craft-items",
         element: <AllArtCraft />,
         loader: () => fetch("http://localhost:5555/crafts"),
       },
       {
-        path: `/crafts/:item_name`,
+        path: `/crafts/:id`,
         element: (
           <PrivateRoute>
             <CraftDetail />
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5555/crafts/${params.item_name}`),
+          fetch(`http://localhost:5555/crafts/${params.id}`),
       },
       {
-        path: `/my-art&craft`,
+        path: `/my-art-craft-list`,
         element: (
           <PrivateRoute>
             <MyArtCraft />
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         loader: () => fetch(`http://localhost:5555/crafts`),
       },
       {
-        path: `/crafts/:id`,
+        path: "/update-craft/:id",
         element: (
           <PrivateRoute>
             <UpdateCraft />

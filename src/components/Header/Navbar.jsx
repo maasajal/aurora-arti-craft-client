@@ -25,11 +25,11 @@ const Navbar = () => {
       <li key="home" className="hover:text-white mr-3">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li key="all-art&craft" className="hover:text-white mr-3">
-        <NavLink to="/all-art&craft">All art & craft items</NavLink>
+      <li key="all-arts-crafts" className="hover:text-white mr-3">
+        <NavLink to="/all-art-craft-items">All art & craft items</NavLink>
       </li>
-      <li key="my-art&craft" className="hover:text-white mr-3">
-        <NavLink to="/my-art&craft">My art & craft</NavLink>
+      <li key="my-art-craft-list" className="hover:text-white mr-3">
+        <NavLink to="/my-art-craft-list">My art & craft</NavLink>
       </li>
       <li key="add-craft" className="hover:text-white mr-3">
         <NavLink to="/add-craft">Add craft item</NavLink>
@@ -37,7 +37,7 @@ const Navbar = () => {
     </>,
   ];
   return (
-    <div className="navbar font-semibold bg-slate-200">
+    <div className="navbar font-semibold bg-slate-200 z-50">
       <div className="navbar px-3 md:px-5 lg:px-12 flex flex-col lg:flex-row">
         <div className="lg:navbar-start">
           <div className="dropdown">

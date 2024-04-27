@@ -2,9 +2,8 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateCraft = () => {
-  const editCraftItem = useLoaderData();
   const navigate = useNavigate();
-  console.log(editCraftItem);
+  const loadCraft = useLoaderData();
 
   const handleCraftEdit = async (e) => {
     e.preventDefault();
@@ -33,7 +32,7 @@ const UpdateCraft = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5555/crafts/${editCraftItem._id}`,
+        `http://localhost:5555/crafts/${loadCraft._id}`,
         {
           method: "PUT",
           headers: {
@@ -45,7 +44,7 @@ const UpdateCraft = () => {
       const data = await response.json();
       //   console.log(data);
       form.reset();
-      navigate("/my-art&craft");
+      navigate("/my-art-craft-list");
       if (data.modifiedCount > 0) {
         Swal.fire({
           title: "Success!",
@@ -73,6 +72,11 @@ const UpdateCraft = () => {
             Update Craft Item
           </span>
         </h2>
+        <h2 className="text-5xl font-extrabold font-playFair py-5">
+          <span className="bg-gradient-to-r from-yellow-700 via-pink-600 to-purple-500 text-transparent bg-clip-text">
+            {loadCraft.item_name}
+          </span>
+        </h2>
         <p className="py-5 leading-8">
           The Update Craft Item page empowers users to refine and enhance their
           listed arts and crafts effortlessly. With intuitive controls, users
@@ -90,7 +94,7 @@ const UpdateCraft = () => {
                 type="text"
                 id="item_name"
                 name="item_name"
-                defaultValue={editCraftItem.item_name}
+                defaultValue={loadCraft.item_name}
                 placeholder="Enter craft name..."
                 className="input input-bordered"
                 required
@@ -103,7 +107,7 @@ const UpdateCraft = () => {
                 id="subcategory_name"
                 name="subcategory_name"
                 placeholder="Enter craft subcategory name..."
-                defaultValue={editCraftItem.subcategory_name}
+                defaultValue={loadCraft.subcategory_name}
                 className="input input-bordered"
                 required
               />
@@ -118,7 +122,7 @@ const UpdateCraft = () => {
                 id="price"
                 name="price"
                 placeholder="Enter craft price..."
-                defaultValue={editCraftItem.price}
+                defaultValue={loadCraft.price}
                 className="input input-bordered"
                 required
               />
@@ -130,7 +134,7 @@ const UpdateCraft = () => {
                 id="rating"
                 name="rating"
                 placeholder="Enter coffee rating..."
-                defaultValue={editCraftItem.rating}
+                defaultValue={loadCraft.rating}
                 className="input input-bordered"
                 required
               />
@@ -144,11 +148,9 @@ const UpdateCraft = () => {
                 className="select input input-bordered"
                 name="customization"
                 required
-                defaultValue={editCraftItem.customization}
+                defaultValue={loadCraft.customization}
               >
-                <option disabled>
-                  Is the item customizable?
-                </option>
+                <option disabled>Is the item customizable?</option>
                 <option>Yes</option>
                 <option>No</option>
               </select>
@@ -160,7 +162,7 @@ const UpdateCraft = () => {
                 id="processing_time"
                 name="processing_time"
                 placeholder="Enter processing time..."
-                defaultValue={editCraftItem.processing_time}
+                defaultValue={loadCraft.processing_time}
                 className="input input-bordered"
                 required
               />
@@ -174,11 +176,9 @@ const UpdateCraft = () => {
                 className="select input input-bordered"
                 name="stock_status"
                 required
-                defaultValue={editCraftItem.stock_status}
+                defaultValue={loadCraft.stock_status}
               >
-                <option disabled>
-                  What is stock status?
-                </option>
+                <option disabled>What is stock status?</option>
                 <option>Made to Order</option>
                 <option>In stock</option>
               </select>
@@ -190,7 +190,7 @@ const UpdateCraft = () => {
                 id="image"
                 name="image"
                 placeholder="Enter image url..."
-                defaultValue={editCraftItem.image}
+                defaultValue={loadCraft.image}
                 className="input input-bordered"
                 required
               />
@@ -204,7 +204,7 @@ const UpdateCraft = () => {
               id="short_description"
               name="short_description"
               placeholder="Enter short description..."
-              defaultValue={editCraftItem.short_description}
+              defaultValue={loadCraft.short_description}
               className="textarea input-bordered"
               required
             />

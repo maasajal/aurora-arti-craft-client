@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const MyCraftItem = ({ myCraft, myCraftListItem, setMyCraftListItem }) => {
   const { loading } = useContext(AuthContext);
   const { _id, image, item_name, price, rating, customization, stock_status } =
-  myCraft;
+    myCraft;
 
   const handleDelete = async (id) => {
     console.log("Delete", id);
@@ -71,7 +71,7 @@ const MyCraftItem = ({ myCraft, myCraftListItem, setMyCraftListItem }) => {
             </div>
             <div className="card-action flex flex-col gap-4">
               <Link
-                to={`/crafts/${_id}`}
+                to={`/update-craft/${_id}`}
                 className="btn border-none uppercase text-white bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
               >
                 <FaEdit className="text-lg" /> Edit
