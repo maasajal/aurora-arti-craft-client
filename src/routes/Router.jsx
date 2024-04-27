@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AllArtCraft from "../pages/AllArtCraft/AllArtCraft";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("../painting&drawing.json"),
+      },
+      {
+        path: "/all-art&craft",
+        element: <AllArtCraft />,
         loader: () => fetch("../painting&drawing.json"),
       },
       {

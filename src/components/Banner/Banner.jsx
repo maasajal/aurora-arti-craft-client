@@ -43,7 +43,7 @@ const Banner = ({ sliderData }) => {
                   </h1>
                   <p className="mb-5">{art.short_description}</p>
                   <Link
-                    to={`/art/${art.item_name}`}
+                    to={`/craft/${art.item_name}`}
                     className="btn px-6 border-none text-white uppercase bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
                   >
                     View Details
