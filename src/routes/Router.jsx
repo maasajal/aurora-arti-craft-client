@@ -21,12 +21,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5555/crafts"),
+        loader: () => fetch("https://aurora-articraft.vercel.app/crafts"),
       },
       {
         path: "/all-art-craft-items",
         element: <AllArtCraft />,
-        loader: () => fetch("http://localhost:5555/crafts"),
+        loader: () => fetch("https://aurora-articraft.vercel.app/crafts"),
       },
       {
         path: `/crafts/:id`,
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5555/crafts/${params.id}`),
+          fetch(`https://aurora-articraft.vercel.app/crafts/${params.id}`),
       },
       {
         path: `/my-art-craft-list`,
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             <MyArtCraft />
           </PrivateRoute>
         ),
-        loader: () => fetch(`http://localhost:5555/crafts`),
+        loader: () => fetch(`https://aurora-articraft.vercel.app/crafts`),
       },
       {
         path: "/update-craft/:id",
@@ -55,12 +55,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5555/crafts/${params.id}`),
+          fetch(`https://aurora-articraft.vercel.app/crafts/${params.id}`),
       },
       {
         path: "/subcategory/:subcategory_name",
         element: <SubCategoryItems />,
-        loader: () => fetch(`http://localhost:5555/crafts`),
+        loader: () => fetch(`https://aurora-articraft.vercel.app/crafts`),
       },
       {
         path: "/add-craft",

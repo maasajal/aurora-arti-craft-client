@@ -34,13 +34,16 @@ const AddCraftItem = () => {
     console.log(addCraftItem);
 
     try {
-      const response = await fetch("http://localhost:5555/crafts", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(addCraftItem),
-      });
+      const response = await fetch(
+        "https://aurora-articraft.vercel.app/crafts",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(addCraftItem),
+        }
+      );
       const data = await response.json();
       //   console.log(data);
       form.reset();

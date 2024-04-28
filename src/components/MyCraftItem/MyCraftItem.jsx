@@ -25,9 +25,12 @@ const MyCraftItem = ({ myCraft, myCraftListItem, setMyCraftListItem }) => {
 
     if (result.isConfirmed) {
       try {
-        const response = await fetch(`http://localhost:5555/crafts/${id}`, {
-          method: "DELETE",
-        });
+        const response = await fetch(
+          `https://aurora-articraft.vercel.app/crafts/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
         const data = await response.json();
         console.log(data);
         if (data.deletedCount > 0) {

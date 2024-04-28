@@ -33,7 +33,7 @@ const UpdateCraft = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5555/crafts/${loadCraft._id}`,
+        `https://aurora-articraft.vercel.app/crafts/${loadCraft._id}`,
         {
           method: "PUT",
           headers: {

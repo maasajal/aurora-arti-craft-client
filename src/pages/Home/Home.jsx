@@ -18,12 +18,12 @@ const Home = () => {
   };
   useEffect(() => {
     const reviewData = async () => {
-      const res = await fetch("http://localhost:5555/feedback");
+      const res = await fetch("https://aurora-articraft.vercel.app/feedback");
       const data = await res.json();
       setFeedback(data);
     };
     const subCategoryName = async () => {
-      const res = await fetch("http://localhost:5555/categories");
+      const res = await fetch("https://aurora-articraft.vercel.app/categories");
       const data = await res.json();
       setSubCategory(data);
     };
