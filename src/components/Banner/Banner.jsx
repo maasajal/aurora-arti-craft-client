@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Typewriter } from "react-simple-typewriter";
+import { Fade, Bounce, Slide } from "react-awesome-reveal";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -38,26 +39,32 @@ const Banner = ({ sliderData }) => {
             >
               <div className="hero-overlay bg-opacity-50"></div>
               <div className="hero-content text-center text-white py-52">
-                <div className="max-w-3xl">
-                  <h1 className="mb-5 text-5xl font-bold font-playFair">
-                    <Typewriter
-                      words={[`${art.item_name}`]}
-                      loop={50}
-                      cursor
-                      cursorStyle="|"
-                      typeSpeed={100}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                    />
-                  </h1>
-                  <p className="mb-5">{art.short_description}</p>
-                  <Link
-                    to={`/crafts/${art._id}`}
-                    className="btn px-6 border-none text-white uppercase bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
-                  >
-                    View Details
-                  </Link>
-                </div>
+                <Fade>
+                  <div className="max-w-3xl">
+                    <h1 className="mb-5 text-5xl font-bold font-playFair">
+                      <Typewriter
+                        words={[`${art.item_name}`]}
+                        loop={50}
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={100}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                      />
+                    </h1>
+                    <Fade>
+                      <p className="mb-5">{art.short_description}</p>
+                    </Fade>
+                    <Bounce>
+                      <Link
+                        to={`/crafts/${art._id}`}
+                        className="btn px-6 border-none text-white uppercase bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
+                      >
+                        View Details
+                      </Link>
+                    </Bounce>
+                  </div>
+                </Fade>
               </div>
             </div>
           </SwiperSlide>

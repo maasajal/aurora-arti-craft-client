@@ -4,6 +4,7 @@ import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Bounce, JackInTheBox, Slide } from "react-awesome-reveal";
 
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
@@ -22,18 +23,26 @@ const Navbar = () => {
   };
   const navLinks = [
     <>
-      <li key="home" className="hover:text-white mr-3">
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li key="all-arts-crafts" className="hover:text-white mr-3">
-        <NavLink to="/all-art-craft-items">All art & craft items</NavLink>
-      </li>
-      <li key="my-art-craft-list" className="hover:text-white mr-3">
-        <NavLink to="/my-art-craft-list">My art & craft List</NavLink>
-      </li>
-      <li key="add-craft" className="hover:text-white mr-3">
-        <NavLink to="/add-craft">Add craft item</NavLink>
-      </li>
+      <Slide>
+        <li key="home" className="hover:text-white mr-3">
+          <NavLink to="/">Home</NavLink>
+        </li>
+      </Slide>
+      <Slide>
+        <li key="all-arts-crafts" className="hover:text-white mr-3">
+          <NavLink to="/all-art-craft-items">All art & craft items</NavLink>
+        </li>
+      </Slide>
+      <Slide>
+        <li key="my-art-craft-list" className="hover:text-white mr-3">
+          <NavLink to="/my-art-craft-list">My art & craft List</NavLink>
+        </li>
+      </Slide>
+      <Slide>
+        <li key="add-craft" className="hover:text-white mr-3">
+          <NavLink to="/add-craft">Add craft item</NavLink>
+        </li>
+      </Slide>
     </>,
   ];
   return (
@@ -68,14 +77,17 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
+
           <a
             href="/"
             className="btn btn-ghost text-3xl font-playFair tooltip tooltip-bottom tooltip-primary z-10"
             data-tip="Aurora Artify & Craft Online Store"
           >
-            <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
-              Aurora ArtiCraft
-            </span>
+            <Bounce>
+              <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
+                Aurora ArtiCraft
+              </span>
+            </Bounce>
           </a>
         </div>
         <div className="lg:navbar-end">
@@ -84,49 +96,55 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          {user && (
-            <div
-              className="dropdown dropdown-end mr-2 tooltip tooltip-bottom tooltip-primary z-10"
-              data-tip={
-                !user.displayName ? "User Name not found!" : user.displayName
-              }
-            >
-              {!loading ? (
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle avatar"
-                >
-                  <div className="w-10 rounded-full">
-                    <img
-                      src={!user.photoURL ? userPhoto : user.photoURL}
-                      alt="Logged user photo"
-                    />
-                  </div>
-                </div>
-              ) : (
-                <span className="loading loading-infinity loading-lg"></span>
-              )}
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+
+          <JackInTheBox>
+            {user && (
+              <div
+                className="dropdown dropdown-end mr-2 tooltip tooltip-bottom tooltip-primary z-10"
+                data-tip={
+                  !user.displayName ? "User Name not found!" : user.displayName
+                }
               >
-                <li>
-                  <NavLink to="/user-profile" className="py-3 hover:text-white">
-                    User Profile
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/update-profile"
-                    className="py-3 hover:text-white"
+                {!loading ? (
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
                   >
-                    Update Profile
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
-          )}
+                    <div className="w-10 rounded-full">
+                      <img
+                        src={!user.photoURL ? userPhoto : user.photoURL}
+                        alt="Logged user photo"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <span className="loading loading-infinity loading-lg"></span>
+                )}
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <NavLink
+                      to="/user-profile"
+                      className="py-3 hover:text-white"
+                    >
+                      User Profile
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/update-profile"
+                      className="py-3 hover:text-white"
+                    >
+                      Update Profile
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </JackInTheBox>
           {user ? (
             <Link
               to="/"

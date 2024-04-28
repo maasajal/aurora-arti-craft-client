@@ -3,6 +3,7 @@ import MyCraftItem from "../../components/MyCraftItem/MyCraftItem";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
+import { Bounce, Fade } from "react-awesome-reveal";
 
 const MyArtCraft = () => {
   const { user } = useContext(AuthContext);
@@ -39,38 +40,31 @@ const MyArtCraft = () => {
               />
             </span>
           </h2>
-          <p className="py-5 leading-8">
-            My Art & Craft List is a private and secure route where users can
-            view all the arts and crafts they have personally added to the
-            database. Each user has exclusive access to their own collection,
-            presented in beautifully designed cards for easy browsing and
-            appreciation of their creative contributions
-          </p>
+          <Fade>
+            <p className="py-5 leading-8">
+              My Art & Craft List is a private and secure route where users can
+              view all the arts and crafts they have personally added to the
+              database. Each user has exclusive access to their own collection,
+              presented in beautifully designed cards for easy browsing and
+              appreciation of their creative contributions
+            </p>
+          </Fade>
         </div>
         <div className="text-center">
-          <select
-            onClick={handleFilter}
-            className="select input input-bordered"
-            name="customization"
-            required
-          >
-            <option disabled selected>
-              Is the item customizable?
-            </option>
-            <option>Yes</option>
-            <option>No</option>
-          </select>
-          {/* <select
-            className="select select-bordered w-full max-w-xs"
-            name="customization"
-            onClick={handleFilter}
-          >
-            <option disabled selected>
-              Choose Customization
-            </option>
-            <option>Yes</option>
-            <option>No</option>
-          </select> */}
+          <Bounce>
+            <select
+              onClick={handleFilter}
+              className="select input input-bordered"
+              name="customization"
+              required
+            >
+              <option disabled selected>
+                Is the item customizable?
+              </option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </Bounce>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-24">
           {myCraftListItem.map((craft) => (

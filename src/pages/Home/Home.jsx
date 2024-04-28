@@ -4,6 +4,7 @@ import CraftCard from "../../components/CraftCard/CraftCard";
 import { useEffect, useState } from "react";
 import FeedBack from "../../components/FeedBack/FeedBack";
 import { Typewriter } from "react-simple-typewriter";
+import { Fade, Rotate, Zoom } from "react-awesome-reveal";
 
 const Home = () => {
   const painting_drawing = useLoaderData();
@@ -18,9 +19,9 @@ const Home = () => {
   }, []);
   return (
     <>
-      <div>
+      <Zoom>
         <Banner sliderData={painting_drawing} />
-      </div>
+      </Zoom>
       <div className="max-w-6xl mx-auto px-4 my-12">
         <div className="text-center py-8">
           <h1 className="text-5xl font-playFair font-extrabold">
@@ -36,10 +37,12 @@ const Home = () => {
               />
             </span>
           </h1>
-          <p className="mt-5 leading-8">
-            Explore our most popular craft items, curated for their quality,
-            creativity, and artisanal charm.
-          </p>
+          <Rotate>
+            <p className="mt-5 leading-8">
+              Explore our most popular craft items, curated for their quality,
+              creativity, and artisanal charm.
+            </p>
+          </Rotate>
         </div>
         {/* Craft Items Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-24">
@@ -63,10 +66,12 @@ const Home = () => {
                 />
               </span>
             </h1>
-            <p className="mt-5 leading-8">
-              Explore our Art & Craft Categories, curated for their quality,
-              creativity, and artisanal charm.
-            </p>
+            <Rotate>
+              <p className="mt-5 leading-8">
+                Explore our Art & Craft Categories, curated for their quality,
+                creativity, and artisanal charm.
+              </p>
+            </Rotate>
           </div>
           <div>
             <p>Will be implement soon...</p>
@@ -87,13 +92,17 @@ const Home = () => {
               />
             </span>
           </h2>
-          <p className="mt-5 leading-8">
-            Discover what our customers have to say about their delightful
-            experiences with us.
-          </p>
+          <Rotate>
+            <p className="mt-5 leading-8">
+              Discover what our customers have to say about their delightful
+              experiences with us.
+            </p>
+          </Rotate>
         </div>
         <div className="py-20 bg-slate-100 rounded-xl mt-8">
-          <FeedBack key={feedback._id} feedback={feedback} />
+          <Fade>
+            <FeedBack key={feedback._id} feedback={feedback} />
+          </Fade>
         </div>
         {/* Extra section 2 */}
         <div>
@@ -110,31 +119,33 @@ const Home = () => {
               />
             </span>
           </h2>
-          <div
-            className="py-32 text-center bg-cover mt-20"
-            style={{
-              backgroundImage: "url(https://i.ibb.co/XztzdCV/2150981113.jpg)",
-            }}
-          >
-            <div className="stats shadow">
-              <div className="stat place-items-center">
-                <div className="stat-title">Total Sold</div>
-                <div className="stat-value">2599</div>
-              </div>
-              <div className="stat place-items-center">
-                <div className="stat-title">Social Media Reviews</div>
-                <div className="stat-value">2M</div>
-              </div>
-              <div className="stat place-items-center">
-                <div className="stat-title">Happy customers</div>
-                <div className="stat-value text-secondary">800</div>
-              </div>
-              <div className="stat place-items-center">
-                <div className="stat-title">Product variant</div>
-                <div className="stat-value">12</div>
+          <Fade>
+            <div
+              className="py-32 text-center bg-cover mt-20"
+              style={{
+                backgroundImage: "url(https://i.ibb.co/XztzdCV/2150981113.jpg)",
+              }}
+            >
+              <div className="stats shadow">
+                <div className="stat place-items-center">
+                  <div className="stat-title">Total Sold</div>
+                  <div className="stat-value">2599</div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">Social Media Reviews</div>
+                  <div className="stat-value">2M</div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">Happy customers</div>
+                  <div className="stat-value text-secondary">800</div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">Product variant</div>
+                  <div className="stat-value">12</div>
+                </div>
               </div>
             </div>
-          </div>
+          </Fade>
         </div>
       </div>
     </>

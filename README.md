@@ -33,9 +33,13 @@ Each sub-category offers a unique perspective and style, inviting art enthusiast
 - User login using email and password
 - Login with Google
 - Login with GitHub
+- Mongodb database
+- Node.js server
+- Methods: ["GET", "POST", "PUT", "DELETE"]
 - View details for login user
 - Swiper slider testimonials (Feedback)
 
 ### NPM Packages (challenges task)
 
 - "react-simple-typewriter": "^5.0.1",
+- "react-awesome-reveal": "^4.2.8",
