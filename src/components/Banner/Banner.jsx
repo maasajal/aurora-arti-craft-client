@@ -38,7 +38,7 @@ const Banner = ({ sliderData }) => {
               }}
             >
               <div className="hero-overlay bg-opacity-60"></div>
-              <div className="hero-content text-center text-white py-52">
+              <div className="hero-content text-center text-white py-20 md:py-52">
                 <Fade>
                   <div className="max-w-3xl">
                     <h1 className="mb-5 text-5xl font-bold font-playFair">

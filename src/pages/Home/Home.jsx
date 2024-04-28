@@ -6,10 +6,12 @@ import FeedBack from "../../components/FeedBack/FeedBack";
 import { Typewriter } from "react-simple-typewriter";
 import { Fade, Rotate, Zoom } from "react-awesome-reveal";
 import { FaRightFromBracket } from "react-icons/fa6";
+import SubCategoryCard from "../../components/SubCategory/SubCategoryCard";
 
 const Home = () => {
   const painting_drawing = useLoaderData();
   const [feedback, setFeedback] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
   const [dark, setDark] = useState(false);
   const toggleTheme = () => {
     setDark(!dark);
@@ -20,8 +22,18 @@ const Home = () => {
       const data = await res.json();
       setFeedback(data);
     };
+    const subCategoryName = async () => {
+      const res = await fetch("http://localhost:5555/categories");
+      const data = await res.json();
+      setSubCategory(data);
+    };
     reviewData();
+    subCategoryName();
   }, []);
+  const totalSell = subCategory
+    .map((sell) => sell.sold)
+    .reduce((a, b) => a + b);
+
   return (
     <div className={`${dark ? "bg-slate-800" : "bg-white"}`}>
       <Zoom>
@@ -101,11 +113,11 @@ const Home = () => {
             </Rotate>
           </div>
           <div>
-            <p
-              className={`mt-5 leading-8 ${dark ? "text-white" : "text-black"}`}
-            >
-              Will be implement soon...
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-24">
+              {subCategory.map((category) => (
+                <SubCategoryCard key={category._id} category={category} />
+              ))}
+            </div>
           </div>
         </div>
         {/* Extra Section 1 */}
@@ -162,19 +174,27 @@ const Home = () => {
               <div className="stats shadow mx-3 flex">
                 <div className="stat place-items-center">
                   <div className="stat-title">Total Sold</div>
-                  <div className="stat-value bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">2599</div>
+                  <div className="stat-value bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
+                    {totalSell}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Social Media Reviews</div>
-                  <div className="stat-value bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">2M</div>
+                  <div className="stat-value bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
+                    2M
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Happy customers</div>
-                  <div className="stat-value bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">800</div>
+                  <div className="stat-value bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
+                    800
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Product variant</div>
-                  <div className="stat-value bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">12</div>
+                  <div className="stat-value bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
+                    12
+                  </div>
                 </div>
               </div>
             </div>
