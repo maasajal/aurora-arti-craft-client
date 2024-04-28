@@ -18,9 +18,18 @@ const MyArtCraft = () => {
 
   const handleFilter = async (e) => {
     e.preventDefault();
-    const form = e.target;
-    const customization = form.customization.value;
-    console.log("clicked on filter", customization);
+    const customization = e.target.value;
+    console.log("Clicked on filter", customization);
+
+    let filteredList = myCraftList;
+    if (customization !== "All") {
+      filteredList = myCraftList.filter(
+        (craft) => craft.customization === customization
+      );
+      setMyCraftListItem(filteredList);
+    } else {
+      setMyCraftListItem(filteredList);
+    }
   };
 
   return (
@@ -53,20 +62,21 @@ const MyArtCraft = () => {
         <div className="text-center">
           <Bounce>
             <select
-              onClick={handleFilter}
+              onChange={handleFilter}
               className="select input input-bordered"
-              name="customization"
+              name="custom"
               required
             >
               <option disabled selected>
-                Is the item customizable?
+                Filter based on customization!
               </option>
-              <option>Yes</option>
-              <option>No</option>
+              <option value="All">All</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </Bounce>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
           {myCraftListItem.map((craft) => (
             <MyCraftItem
               key={craft._id}
