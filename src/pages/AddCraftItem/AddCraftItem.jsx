@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
 
 const AddCraftItem = () => {
@@ -68,7 +69,15 @@ const AddCraftItem = () => {
       <div className="text-center pt-24 max-w-3xl mx-auto">
         <h2 className="text-5xl font-extrabold font-playFair">
           <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
-            Add a Craft Item
+            <Typewriter
+              words={["Add a Craft Item"]}
+              loop={50}
+              cursor
+              cursorStyle="|"
+              typeSpeed={100}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
           </span>
         </h2>
         <p className="py-5 leading-8">

@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import MyCraftItem from "../../components/MyCraftItem/MyCraftItem";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 const MyArtCraft = () => {
   const { user } = useContext(AuthContext);
@@ -27,7 +28,15 @@ const MyArtCraft = () => {
         <div className="text-center pt-24 max-w-3xl mx-auto">
           <h2 className="text-5xl font-extrabold font-playFair">
             <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
-              My Art & Craft List
+              <Typewriter
+                words={[`My Art & Craft List`]}
+                loop={50}
+                cursor
+                cursorStyle="|"
+                typeSpeed={100}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
             </span>
           </h2>
           <p className="py-5 leading-8">
@@ -40,7 +49,7 @@ const MyArtCraft = () => {
         </div>
         <div className="text-center">
           <select
-          onClick={handleFilter}
+            onClick={handleFilter}
             className="select input input-bordered"
             name="customization"
             required

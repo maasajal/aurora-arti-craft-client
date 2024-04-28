@@ -1,4 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 
 const AllArtCraft = () => {
   const allArt_Craft = useLoaderData();
@@ -8,7 +9,15 @@ const AllArtCraft = () => {
         <div className="text-center pt-24 max-w-3xl mx-auto">
           <h2 className="text-5xl font-extrabold font-playFair">
             <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
-              All Art & Craft Items
+              <Typewriter
+                words={[`All Art & Craft Items`]}
+                loop={50}
+                cursor
+                cursorStyle="|"
+                typeSpeed={100}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
             </span>
           </h2>
           <p className="py-5 leading-8">
