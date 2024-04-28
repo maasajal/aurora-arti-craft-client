@@ -37,20 +37,22 @@ const Banner = ({ sliderData }) => {
                 backgroundImage: `url(${art.image})`,
               }}
             >
-              <div className="hero-overlay bg-opacity-50"></div>
+              <div className="hero-overlay bg-opacity-60"></div>
               <div className="hero-content text-center text-white py-52">
                 <Fade>
                   <div className="max-w-3xl">
                     <h1 className="mb-5 text-5xl font-bold font-playFair">
-                      <Typewriter
-                        words={[`${art.item_name}`]}
-                        loop={50}
-                        cursor
-                        cursorStyle="|"
-                        typeSpeed={100}
-                        deleteSpeed={50}
-                        delaySpeed={1000}
-                      />
+                      <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
+                        <Typewriter
+                          words={[`${art.item_name}`]}
+                          loop={50}
+                          cursor
+                          cursorStyle="|"
+                          typeSpeed={100}
+                          deleteSpeed={50}
+                          delaySpeed={1000}
+                        />
+                      </span>
                     </h1>
                     <Fade>
                       <p className="mb-5">{art.short_description}</p>

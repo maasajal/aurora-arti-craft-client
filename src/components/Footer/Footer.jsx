@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className="p-10 bg-slate-200 mt-28">
+      <footer className="p-10 bg-slate-200">
         <div className="footer max-w-6xl mx-auto flex flex-wrap justify-between ">
           <nav>
             <h6 className="footer-title">Contact Us</h6>
@@ -21,7 +21,7 @@ const Footer = () => {
           </nav>
           <form>
             <h6 className="footer-title">Newsletter</h6>
-            <fieldset className="form-control w-80">
+            <fieldset className="form-control w-full">
               <label className="label">
                 <span className="label-text">Enter your email address</span>
               </label>
@@ -29,9 +29,9 @@ const Footer = () => {
                 <input
                   type="text"
                   placeholder="username@site.com"
-                  className="input input-bordered join-item"
+                  className="input input-bordered join-item w-2/3"
                 />
-                <button className="btn px-6 border-none uppercase text-white join-item bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500">
+                <button className="btn px-3 md:px-6 border-none uppercase text-white join-item bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500">
                   Subscribe
                 </button>
               </div>
