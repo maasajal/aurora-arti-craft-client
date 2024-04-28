@@ -10,6 +10,7 @@ import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
 import CraftDetail from "../pages/CraftDetail/CraftDetail";
 import MyArtCraft from "../pages/MyArt&Craft/MyArtCraft";
 import UpdateCraft from "../pages/UpdateCraft/UpdateCraft";
+import SubCategoryItems from "../pages/SubCategoryItems/SubCategoryItems";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,11 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5555/crafts/${params.id}`),
+      },
+      {
+        path: "/subcategory/:subcategory_name",
+        element: <SubCategoryItems />,
+        loader: () => fetch(`http://localhost:5555/crafts`),
       },
       {
         path: "/add-craft",

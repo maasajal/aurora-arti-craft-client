@@ -32,7 +32,7 @@ const Home = () => {
   }, []);
   const totalSell = subCategory
     .map((sell) => sell.sold)
-    .reduce((a, b) => a + b);
+    .reduce((a, b) => a + b, 0);
 
   return (
     <div className={`${dark ? "bg-slate-800" : "bg-white"}`}>

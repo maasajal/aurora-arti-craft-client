@@ -5,7 +5,7 @@ import { Slide } from "react-awesome-reveal";
 
 const SubCategoryCard = ({ category }) => {
   const { loading } = useContext(AuthContext);
-  const { _id, image, subcategory_name, description, sold } = category;
+  const { image, subcategory_name, description, sold } = category;
   return (
     <>
       {!loading ? (
