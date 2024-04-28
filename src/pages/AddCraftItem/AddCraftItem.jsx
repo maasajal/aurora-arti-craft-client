@@ -42,7 +42,7 @@ const AddCraftItem = () => {
       });
       const data = await response.json();
       //   console.log(data);
-      // form.reset();
+      form.reset();
       if (data.insertedId) {
         Swal.fire({
           title: "Success!",
@@ -50,7 +50,7 @@ const AddCraftItem = () => {
           icon: "success",
           confirmButtonText: "Cool",
         });
-        // navigate("/my-art&craft")
+        navigate("/my-art-craft-list");
       }
     } catch (error) {
       console.error("Error", error);
@@ -186,6 +186,18 @@ const AddCraftItem = () => {
             </div>
           </div>
           {/* Form fifth row */}
+          <div className="form-control mb-5">
+            <label className="label">Short Description</label>
+            <textarea
+              type="textarea"
+              id="short_description"
+              name="short_description"
+              placeholder="Enter short description..."
+              className="textarea input-bordered"
+              required
+            />
+          </div>
+          {/* Form sixth row */}
           <div className="flex gap-5 mb-5 flex-col md:flex-row">
             <div className="form-control w-full">
               <label className="label">User Email</label>
@@ -210,22 +222,10 @@ const AddCraftItem = () => {
               />
             </div>
           </div>
-          {/* Form sixth row */}
-          <div className="form-control mb-5">
-            <label className="label">Short Description</label>
-            <textarea
-              type="textarea"
-              id="short_description"
-              name="short_description"
-              placeholder="Enter short description..."
-              className="textarea input-bordered"
-              required
-            />
-          </div>
           {/* form submit button */}
           <div className="form-control mt-6">
             <button className="btn text-white bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500">
-              Add Craft Item
+              Add
             </button>
           </div>
         </form>

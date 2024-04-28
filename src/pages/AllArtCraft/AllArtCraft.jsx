@@ -1,5 +1,4 @@
-import { useLoaderData } from "react-router-dom";
-import CraftCard from "../../components/CraftCard/CraftCard";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllArtCraft = () => {
   const allArt_Craft = useLoaderData();
@@ -18,10 +17,57 @@ const AllArtCraft = () => {
             your creativity and adorn your space.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-24">
-          {allArt_Craft.map((craft) => (
-            <CraftCard key={craft._id} craft={craft} />
-          ))}
+        <div className="overflow-x-auto my-12">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr className="text-xl">
+                <th></th>
+                <th>Photo & Craft Name</th>
+                <th>Price</th>
+                <th>Stock Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* dynamic row */}
+              {allArt_Craft.map((craft, idx) => (
+                <tr>
+                  <th>{idx + 1}</th>
+                  <td>
+                    <div className="flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-20">
+                          <img src={craft.image} alt={craft.item_name} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{craft.item_name}</div>
+                        <div className="text-sm opacity-50">
+                          {craft.subcategory_name}{" "}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    $
+                    <span className="badge badge-ghost badge-sm">
+                      {craft.price}
+                    </span>
+                  </td>
+                  <td>{craft.stock_status}</td>
+                  <th>
+                    <Link
+                      to={`/crafts/${craft._id}`}
+                      className="btn px-6 border-none uppercase text-white bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
+                    >
+                      View Details
+                    </Link>
+                  </th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

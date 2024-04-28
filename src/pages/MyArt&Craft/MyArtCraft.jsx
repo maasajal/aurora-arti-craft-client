@@ -13,7 +13,14 @@ const MyArtCraft = () => {
   );
 
   const [myCraftListItem, setMyCraftListItem] = useState(myCraftList);
-  //   console.log(myCraftList);
+
+  const handleFilter = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const customization = form.customization.value;
+    console.log("clicked on filter", customization);
+  };
+
   return (
     <div>
       <div className="max-w-6xl mx-auto px-4 md:px-3 lg:px-2">
@@ -30,6 +37,31 @@ const MyArtCraft = () => {
             presented in beautifully designed cards for easy browsing and
             appreciation of their creative contributions
           </p>
+        </div>
+        <div className="text-center">
+          <select
+          onClick={handleFilter}
+            className="select input input-bordered"
+            name="customization"
+            required
+          >
+            <option disabled selected>
+              Is the item customizable?
+            </option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+          {/* <select
+            className="select select-bordered w-full max-w-xs"
+            name="customization"
+            onClick={handleFilter}
+          >
+            <option disabled selected>
+              Choose Customization
+            </option>
+            <option>Yes</option>
+            <option>No</option>
+          </select> */}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-24">
           {myCraftListItem.map((craft) => (

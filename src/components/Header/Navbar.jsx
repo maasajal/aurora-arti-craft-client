@@ -29,7 +29,7 @@ const Navbar = () => {
         <NavLink to="/all-art-craft-items">All art & craft items</NavLink>
       </li>
       <li key="my-art-craft-list" className="hover:text-white mr-3">
-        <NavLink to="/my-art-craft-list">My art & craft</NavLink>
+        <NavLink to="/my-art-craft-list">My art & craft List</NavLink>
       </li>
       <li key="add-craft" className="hover:text-white mr-3">
         <NavLink to="/add-craft">Add craft item</NavLink>
@@ -37,10 +37,10 @@ const Navbar = () => {
     </>,
   ];
   return (
-    <div className="navbar font-semibold bg-slate-200 z-50">
+    <div className="navbar font-semibold bg-slate-200">
       <div className="navbar px-3 md:px-5 lg:px-12 flex flex-col lg:flex-row">
         <div className="lg:navbar-start">
-          <div className="dropdown">
+          <div className="dropdown z-20">
             <div
               tabIndex={0}
               role="button"
@@ -70,7 +70,7 @@ const Navbar = () => {
           </div>
           <a
             href="/"
-            className="btn btn-ghost text-3xl font-playFair tooltip tooltip-bottom tooltip-primary"
+            className="btn btn-ghost text-3xl font-playFair tooltip tooltip-bottom tooltip-primary z-10"
             data-tip="Aurora Artify & Craft Online Store"
           >
             <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
@@ -85,7 +85,12 @@ const Navbar = () => {
             </ul>
           </div>
           {user && (
-            <div className="dropdown dropdown-end mr-2">
+            <div
+              className="dropdown dropdown-end mr-2 tooltip tooltip-bottom tooltip-primary z-10"
+              data-tip={
+                !user.displayName ? "User Name not found!" : user.displayName
+              }
+            >
               {!loading ? (
                 <div
                   tabIndex={0}
@@ -96,11 +101,6 @@ const Navbar = () => {
                     <img
                       src={!user.photoURL ? userPhoto : user.photoURL}
                       alt="Logged user photo"
-                      title={
-                        !user.displayName
-                          ? "User Name not found!"
-                          : user.displayName
-                      }
                     />
                   </div>
                 </div>
@@ -136,12 +136,20 @@ const Navbar = () => {
               Sign Out
             </Link>
           ) : (
-            <Link
-              to="/login"
-              className="btn px-6 border-none text-white uppercase bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
-            >
-              Login
-            </Link>
+            <>
+              <Link
+                to="/login"
+                className="btn px-6 mr-3 border-none text-white uppercase bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="btn px-6 border-none text-white uppercase bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500"
+              >
+                Register
+              </Link>
+            </>
           )}
         </div>
       </div>

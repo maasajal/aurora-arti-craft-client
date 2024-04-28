@@ -9,7 +9,7 @@ const Home = () => {
   const [feedback, setFeedback] = useState([]);
   useEffect(() => {
     const reviewData = async () => {
-      const res = await fetch("feedback.json");
+      const res = await fetch("http://localhost:5555/feedback");
       const data = await res.json();
       setFeedback(data);
     };
@@ -40,6 +40,23 @@ const Home = () => {
             <CraftCard key={craft._id} craft={craft} />
           ))}
         </div>
+        {/* Art & Craft Categories Section */}
+        <div>
+          <div className="text-center py-8">
+            <h1 className="text-5xl font-playFair font-extrabold">
+              <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
+                Art & Craft Categories
+              </span>
+            </h1>
+            <p className="mt-5 leading-8">
+              Explore our Art & Craft Categories, curated for their quality,
+              creativity, and artisanal charm.
+            </p>
+          </div>
+          <div>
+            <p>Will be implement soon...</p>
+          </div>
+        </div>
         {/* Extra Section 1 */}
         <div className="mt-32 text-center max-w-xl mx-auto">
           <h2 className="text-5xl font-extrabold font-playFair">
@@ -53,7 +70,7 @@ const Home = () => {
           </p>
         </div>
         <div className="py-20 bg-slate-100 rounded-xl mt-8">
-          <FeedBack feedback={feedback} />
+          <FeedBack key={feedback._id} feedback={feedback} />
         </div>
         {/* Extra section 2 */}
         <div

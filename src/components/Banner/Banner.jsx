@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Typewriter } from "react-simple-typewriter";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -39,6 +40,15 @@ const Banner = ({ sliderData }) => {
               <div className="hero-content text-center text-white py-52">
                 <div className="max-w-3xl">
                   <h1 className="mb-5 text-5xl font-bold font-playFair">
+                    <Typewriter
+                      words={["Eat", `${art.item_name}`, "Sleep", "Code", "Repeat!"]}
+                      loop={5}
+                      cursor
+                      cursorStyle="_"
+                      typeSpeed={70}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                    />
                     {art.item_name}{" "}
                   </h1>
                   <p className="mb-5">{art.short_description}</p>
