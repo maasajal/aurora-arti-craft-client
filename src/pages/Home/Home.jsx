@@ -61,7 +61,7 @@ const Home = () => {
             <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
               <Typewriter
                 words={["Most Popular Craft Items"]}
-                loop={50}
+                loop={5}
                 cursor
                 cursorStyle="|"
                 typeSpeed={100}
@@ -92,7 +92,7 @@ const Home = () => {
               <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
                 <Typewriter
                   words={["Art & Craft Categories"]}
-                  loop={50}
+                  loop={5}
                   cursor
                   cursorStyle="|"
                   typeSpeed={100}
@@ -126,7 +126,7 @@ const Home = () => {
             <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
               <Typewriter
                 words={["What people say about us"]}
-                loop={50}
+                loop={5}
                 cursor
                 cursorStyle="|"
                 typeSpeed={100}
@@ -155,7 +155,7 @@ const Home = () => {
             <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
               <Typewriter
                 words={["Our success history"]}
-                loop={50}
+                loop={5}
                 cursor
                 cursorStyle="|"
                 typeSpeed={100}

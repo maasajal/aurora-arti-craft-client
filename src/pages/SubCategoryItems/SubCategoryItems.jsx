@@ -18,8 +18,8 @@ const SubCategoryItems = () => {
           <h2 className="text-5xl font-extrabold font-playFair">
             <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">
               <Typewriter
-                words={[`My Art & Craft List`]}
-                loop={50}
+                words={[`Sub category list items`]}
+                loop={5}
                 cursor
                 cursorStyle="|"
                 typeSpeed={100}
@@ -30,11 +30,11 @@ const SubCategoryItems = () => {
           </h2>
           <Fade>
             <p className="py-5 leading-8">
-              My Art & Craft List is a private and secure route where users can
-              view all the arts and crafts they have personally added to the
-              database. Each user has exclusive access to their own collection,
-              presented in beautifully designed cards for easy browsing and
-              appreciation of their creative contributions
+              The subcategory page in Aurora Articraft's online store offers a
+              focused selection of art and craft items belonging to a specific
+              category. Users can easily explore curated products within their
+              desired niche, streamlining their shopping experience and
+              discovering unique craft pieces tailored to their preferences.
             </p>
           </Fade>
         </div>

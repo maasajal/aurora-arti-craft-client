@@ -6,7 +6,7 @@
 
 ## Live Client Site Link: [https://aurora-articraft.web.app](https://aurora-articraft.web.app)
 
-## Live Server Site Link: [https://aurora-articraft.web.app](https://aurora-articraft.web.app)
+## Live Server Site Link: [https://aurora-articraft.vercel.app/](https://aurora-articraft.vercel.app/)
 
 ## Selected Category's Name
 
