@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
@@ -69,6 +70,10 @@ const AddCraftItem = () => {
 
   return (
     <div className="text-center my-8 mx-auto max-w-6xl px-3">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Add Craft | Painting & Drawing</title>
+      </Helmet>
       <div className="text-center pt-24 max-w-3xl mx-auto">
         <h2 className="text-5xl font-extrabold font-playFair">
           <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-yellow-500 text-transparent bg-clip-text">

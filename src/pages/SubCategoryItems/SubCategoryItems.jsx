@@ -2,6 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import { Fade } from "react-awesome-reveal";
 import CraftCard from "../../components/CraftCard/CraftCard";
+import { Helmet } from "react-helmet";
 
 const SubCategoryItems = () => {
   const subcategoryData = useLoaderData();
@@ -13,6 +14,10 @@ const SubCategoryItems = () => {
   // console.log(filteredSubCategory);
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Sub Category Items | Painting & Drawing</title>
+      </Helmet>
       <div className="max-w-6xl mx-auto px-4 md:px-3 lg:px-2">
         <div className="text-center pt-24 max-w-3xl mx-auto">
           <h2 className="text-5xl font-extrabold font-playFair">

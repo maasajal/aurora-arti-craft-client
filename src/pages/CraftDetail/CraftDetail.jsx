@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -5,7 +6,6 @@ const CraftDetail = () => {
   const craftItem = useLoaderData();
 
   const {
-    _id,
     item_name,
     image,
     subcategory_name,
@@ -20,6 +20,10 @@ const CraftDetail = () => {
   } = craftItem;
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Craft Details | Painting & Drawing</title>
+      </Helmet>
       <div className="text-center my-8 max-w-6xl mx-auto px-3">
         <div className="text-center pt-24 max-w-3xl mx-auto">
           <h2 className="text-5xl font-extrabold font-playFair">

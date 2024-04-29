@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import { PiEyeClosedFill } from "react-icons/pi";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -85,6 +86,10 @@ const Register = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Register | Painting & Drawing</title>
+      </Helmet>
       <div className="max-w-6xl mx-auto px-4 md:px-3 lg:px-2">
         <div className="hero bg-base-200 my-20 rounded-xl">
           <div className="hero-content flex-col">

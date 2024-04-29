@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
 import { Bounce, Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 const MyArtCraft = () => {
   const { user } = useContext(AuthContext);
@@ -34,6 +35,10 @@ const MyArtCraft = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>My Art & Craft list | Painting & Drawing</title>
+      </Helmet>
       <div className="max-w-6xl mx-auto px-4 md:px-3 lg:px-2">
         <div className="text-center pt-24 max-w-3xl mx-auto">
           <h2 className="text-5xl font-extrabold font-playFair">

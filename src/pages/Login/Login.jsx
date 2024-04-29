@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { logInUser, signInWithGoogle, signInWithGithub, loading } =
@@ -96,6 +97,10 @@ const Login = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 md:px-3 lg:px-2">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login | Painting & Drawing</title>
+      </Helmet>
       <div className="hero bg-base-200 my-20 rounded-xl">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left my-8">

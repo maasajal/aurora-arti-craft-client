@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../../components/Banner/Banner";
 import CraftCard from "../../components/CraftCard/CraftCard";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import FeedBack from "../../components/FeedBack/FeedBack";
 import { Typewriter } from "react-simple-typewriter";
 import { Fade, Rotate, Zoom } from "react-awesome-reveal";
@@ -36,6 +37,10 @@ const Home = () => {
 
   return (
     <div className={`${dark ? "bg-slate-800" : "bg-white"}`}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home | Aurora ArtiCraft</title>
+      </Helmet>
       <Zoom>
         <Banner sliderData={painting_drawing} />
       </Zoom>

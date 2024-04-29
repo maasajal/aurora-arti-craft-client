@@ -1,4 +1,5 @@
 import { Rotate, Slide } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -6,6 +7,10 @@ const AllArtCraft = () => {
   const allArt_Craft = useLoaderData();
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>All Art & Craft | Painting & Drawing</title>
+      </Helmet>
       <div className="max-w-6xl mx-auto px-4 md:px-3 lg:px-2">
         <div className="text-center pt-24 max-w-3xl mx-auto">
           <h2 className="text-5xl font-extrabold font-playFair">
@@ -30,7 +35,7 @@ const AllArtCraft = () => {
           </Rotate>
         </div>
         <div className="overflow-x-auto my-12">
-          <Slide direction="up">
+          <Slide direction="right">
             <table className="table">
               {/* head */}
               <thead>
