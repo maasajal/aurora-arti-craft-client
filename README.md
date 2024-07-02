@@ -1,16 +1,20 @@
-# Aurora ArtiCraft
+# Aurora ArtiCraft - Painting and Drawing
 
-## [Private Client side Repo Link](https://github.com/programming-hero-web-course-4/B9A10-client-side-maasajal)
-
-## [Private Server side Repo Link](https://github.com/programming-hero-web-course-4/b9a10-server-side-maasajal)
+## Demos
 
 ## Live Client Site Link: [https://aurora-articraft.web.app](https://aurora-articraft.web.app)
 
 ## Live Server Site Link: [https://aurora-articraft.vercel.app/](https://aurora-articraft.vercel.app/)
 
-## Selected Category's Name
+- Run the project on your Local machine
 
-- Painting and Drawing
+  - Clone: `git clone https://github.com/maasajal/aurora-arti-craft-client.git`
+  - Change Directory: `cd aurora-arti-craft-client`
+  - Install packages: `npm i` or `npm install`
+  - create a .env.local file and add firebase config code. example code at the end
+  - Run: `npm run dev`
+
+## [Server side Repo Link](https://github.com/maasajal/aurora-arti-craft-server)
 
 ## About the project
 
@@ -43,3 +47,12 @@ Each sub-category offers a unique perspective and style, inviting art enthusiast
 
 - "react-simple-typewriter": "^5.0.1",
 - "react-awesome-reveal": "^4.2.8",
+
+```
+  VITE_APIKEY=
+  VITE_AUTHDOMAIN=
+  VITE_PROJECTID=
+  VITE_STORAGEBUCKET=
+  VITE_MESSAGINGSENDERID=
+  VITE_APPID=
+```
